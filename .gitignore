@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
+=======
+permutations
+tests/output
+>>>>>>> origin/master
