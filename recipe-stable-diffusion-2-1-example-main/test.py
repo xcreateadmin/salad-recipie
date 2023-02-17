@@ -100,8 +100,8 @@ def runTest(name, args, extraCallInputs, extraModelInputs):
 
     start = time.time()
     if args.get("banana", None):
-        BANANA_API_KEY = os.getenv("BANANA_API_KEY")
-        BANANA_MODEL_KEY = os.getenv("BANANA_MODEL_KEY")
+        BANANA_API_KEY = "f35cfb9d-f410-4c00-93aa-64e459b42e58"
+        BANANA_MODEL_KEY = "751c56c7-e7e1-4155-8a68-8375cb4cf9c5"
         if BANANA_MODEL_KEY == None or BANANA_API_KEY == None:
             print("Error: BANANA_API_KEY or BANANA_MODEL_KEY not set, aborting...")
             sys.exit(1)
@@ -256,14 +256,19 @@ test(
     "txt2img",
     {
         "modelInputs": {
-            "prompt": "realistic field of grass",
-            "num_inference_steps": 20,
+            "prompt": "shoes in flat icon style",
+            "num_inference_steps": 60,
+            "num_images_per_prompt": 4,
+            "guidance_scale": 7,
+            "width": 512,
+            "height": 512,
+            
         },
         "callInputs": {
-            # "MODEL_ID": "<override_default>",  # (default)
-            # "PIPELINE": "StableDiffusionPipeline",  # (default)
-            # "SCHEDULER": "DPMSolverMultistepScheduler",  # (default)
-            # "xformers_memory_efficient_attention": False,  # (default)
+            "MODEL_ID": "rdcoder/rd-model-test-v2",  # (default)
+            "PIPELINE": "StableDiffusionPipeline",  # (default)
+            "SCHEDULER": "EulerAncestralDiscreteScheduler",  # (default)
+            "xformers_memory_efficient_attention": False,  # (default)
         },
     },
 )
